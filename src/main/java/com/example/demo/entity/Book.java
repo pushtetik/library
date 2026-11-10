@@ -1,27 +1,31 @@
-package com.example.demo;
+package com.example.demo.entity;
 
-import java.util.concurrent.atomic.AtomicLong;
+import jakarta.persistence.*;
 
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column (length = 200)
     private String title;
+    @Column (nullable = false)
     private String author;
-    private static final AtomicLong count = new AtomicLong();
-    public Book(String title, String author){
+    @Column (nullable = false)
+    private String isbn;
+    public Book(String title, String author, String isbn){
         this.title=title;
         this.author=author;
-        this.id=count.incrementAndGet();
+
+        this.isbn = isbn;
+    }
+
+    public Book() {
 
     }
-    public Book(){
-        this.id=count.incrementAndGet();
-    }
+
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -38,6 +42,14 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 }
 
