@@ -2,7 +2,7 @@ INSERT INTO "user" (email, password_hash, full_name, role) VALUES
                                                               ('admin@library.local', 'changeme', 'Админ Админов',   'ADMIN'),
                                                               ('ivan@library.local',  'changeme', 'Иван Иванов',     'USER'),
                                                               ('anna@library.local',  'changeme', 'Анна Смирнова',   'USER'),
-                                                              ('petr@library.local',  'changeme', 'Пётр Петров',     'USER')
+                                                              ('petr@library.local',  'changeme', 'Пётр Петров',     'USER');
 
 INSERT INTO book (title, author, isbn, published_year) VALUES
     ('Война и мир',                       'Лев Толстой',       '978-5-04-116640-3', 1869),
@@ -13,7 +13,7 @@ INSERT INTO book (title, author, isbn, published_year) VALUES
     ('1984',                              'Джордж Оруэлл',     '978-5-04-118288-5', 1949),
     ('Скотный двор',                      'Джордж Оруэлл',     '978-5-04-118289-2', 1945),
     ('Понедельник начинается в субботу',  'Стругацкие',        NULL,                1965),
-    ('Трудно быть богом',                 'Стругацкие',        '978-5-04-118290-8', NULL)
+    ('Трудно быть богом',                 'Стругацкие',        '978-5-04-118290-8', NULL);
 
 
 INSERT INTO loan (book_id, user_id, loan_date, due_date, return_date) VALUES
@@ -26,4 +26,4 @@ INSERT INTO loan (book_id, user_id, loan_date, due_date, return_date) VALUES
 
     (6, 2, CURRENT_DATE - 7,  CURRENT_DATE + 7, NULL),
 
-    (8, 3, CURRENT_DATE - 3,  CURRENT_DATE + 11, NULL)
+    (8, 3, CURRENT_DATE - 3,  CURRENT_DATE + 11, NULL);

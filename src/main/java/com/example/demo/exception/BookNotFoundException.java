@@ -1,7 +1,4 @@
-package com.example.demo;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+package com.example.demo.exception;
 
 public class BookNotFoundException extends RuntimeException{
      public BookNotFoundException(String message){

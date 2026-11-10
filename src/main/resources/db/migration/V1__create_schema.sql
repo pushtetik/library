@@ -1,6 +1,6 @@
 create table "user"
 (
-    id            bigint    primary key,
+    id            bigserial    primary key,
     email         varchar(255)                                        not null
         constraint users_email_key
             unique,
