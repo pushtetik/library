@@ -83,4 +83,8 @@ public class User {
     public void setLoans(List<Loan> loans) {
         this.loans = loans;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
