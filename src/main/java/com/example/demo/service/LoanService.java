@@ -50,7 +50,7 @@ public class LoanService {
         return new UserStatsResponse(user.getFullName(),user.getLoans().size());
     }
     @Transactional
-    public Loan createLoan( LoanRequest request) throws InterruptedException {
+    public Loan createLoan( LoanRequest request){
         auditService.log("ISSUE_ATTEMPT bookId=" + request.bookId());
         User user=userRepository.findById(request.userId()).orElseThrow(()->new LoanUserNotFoundException(UserNotFound));
         Book book=bookRepository.findById(request.bookId()).orElseThrow(()->new BookNotFoundException("Книга не найдена"));

@@ -18,7 +18,6 @@ public class BookController {
         this.service=service;
 
     }
-
     private BookResponse toResponse(Book book){
         return new BookResponse(book.getId(), book.getTitle(), book.getAuthor(), book.getIsbn());
     }

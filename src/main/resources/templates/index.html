@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Библиотека — главная</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/index.html" class="logo">Библиотека<span>Demo</span></a>
+        <nav>
+            <ul>
+                <li><a href="/index.html" class="active">Главная</a></li>
+                <li><a href="/books-page">Книги</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1 class="page-title">Добро пожаловать в библиотеку</h1>
+    <p class="page-subtitle">
+        Минимальный интерфейс для управления книгами и выдачами
+    </p>
+
+    <div class="card">
+        <h2 class="card-title">Быстрые действия</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="/books-page" class="btn btn-primary">Посмотреть книги</a>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+        <h2 class="card-title">О проекте</h2>
+        <p style="color: #6b7280;">
+            Это демо-проект на Spring Boot с REST API
+        </p>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Книги — библиотека</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo">Библиотека<span>Demo</span></a>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/books-page" class="active">Книги</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <h1 class="page-title">Книги</h1>
+    <p class="page-subtitle">
+        Список всех книг в библиотеке. Добавьте новую через форму ниже.
+    </p>
+
+    <div class="card">
+        <h2 class="card-title">Список книг</h2>
+
+        <form method="get" th:action="@{/books-page}" class="search-form">
+            <input type="text" name="q" th:value="${q}" placeholder="Поиск по названию" />
+
+            <button type="submit" class="btn btn-primary">Найти</button>
+
+            <a th:if="${q != null and !q.isBlank()}" href="/books-page" class="btn">Сбросить</a>
+        </form>
+
+        <p th:if="${#lists.isEmpty(books)}" class="empty">
+            <span th:if="${q != null and !q.isBlank()}">
+                По запросу «<span th:text="${q}"></span>» ничего не найдено.
+            </span>
+            <span th:if="${q == null or q.isBlank()}">
+                Книг пока не найдено.
+            </span>
+        </p>
+
+        <table th:unless="${#lists.isEmpty(books)}">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Автор</th>
+                <th>ISBN</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="b : ${books}">
+                <td th:text="${b.id}">1</td>
+                <td th:text="${b.title}">Название</td>
+                <td th:text="${b.author}">Автор</td>
+                <td th:text="${b.isbn}">ISBN</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2 class="card-title">Добавить книгу</h2>
+
+        <form class="form-grid" th:action="@{/books-page}" method="post">
+            <div class="field">
+                <label for="title">Название</label>
+                <input type="text" id="title" name="title" required placeholder="Чистый код" />
+            </div>
+            <div class="field">
+                <label for="author">Автор</label>
+                <input type="text" id="author" name="author" required placeholder="Роберт Мартин" />
+            </div>
+            <div class="field">
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="isbn" required placeholder="978-0132350884" />
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+
+        <p th:if="${message}" class="msg-ok" th:text="${message}"></p>
+        <p th:if="${error}" class="msg-err" th:text="${error}"></p>
+    </div>
+</main>
+</body>
+</html>

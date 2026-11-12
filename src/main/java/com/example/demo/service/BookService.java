@@ -19,7 +19,7 @@ public class BookService {
 
         this.repository = repository;
 
-        System.out.println("BookService создан");
+//        System.out.println("BookService создан");
     }
     @Transactional(readOnly = true)
     public Book getBook(Long id) {
